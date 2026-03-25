@@ -1,0 +1,148 @@
+@startuml APQC_Database_ERD
+!define TABLE(name) class name << (T,#FFAAAA) >>
+!define PK(field) <b>PK:</b> field
+!define FK(field) <i>FK:</i> field
+!define INDEX(field) {field}
+
+title APQC Process Classification Framework - Database ERD\nCross Industry v7.2.1
+
+' Define Tables
+TABLE(framework_metadata) {
+  PK(id): INTEGER
+  --
+  framework_name: VARCHAR(255)
+  framework_version: VARCHAR(50)
+  industry_type: VARCHAR(100)
+  release_date: DATE
+  description: TEXT
+  source_system: VARCHAR(100)
+  import_date: TIMESTAMP
+  last_updated: TIMESTAMP
+  ==
+  INDEX(framework_version)
+}
+
+TABLE(process_categories) {
+  PK(category_id): INTEGER
+  --
+  category_code: VARCHAR(10) <<unique>>
+  category_name: VARCHAR(255)
+  category_description: TEXT
+  category_type: VARCHAR(50)
+  sort_order: INTEGER
+  created_date: TIMESTAMP
+  modified_date: TIMESTAMP
+  ==
+  INDEX(category_code)
+  INDEX(category_type)
+}
+
+TABLE(processes) {
+  PK(process_id): VARCHAR(50)
+  --
+  process_code: VARCHAR(20) <<unique>>
+  process_name: VARCHAR(500)
+  process_description: TEXT
+  process_number: VARCHAR(20)
+  internal_id: VARCHAR(50)
+  --
+  hierarchy_level: INTEGER
+  FK(parent_process_code): VARCHAR(20)
+  FK(category_code): VARCHAR(10)
+  --
+  process_type: VARCHAR(50)
+  is_leaf_node: BOOLEAN
+  sort_order: INTEGER
+  is_active: BOOLEAN
+  created_date: TIMESTAMP
+  modified_date: TIMESTAMP
+  ==
+  INDEX(process_code)
+  INDEX(hierarchy_level)
+  INDEX(parent_process_code)
+  INDEX(category_code)
+  INDEX(process_type)
+}
+
+TABLE(process_relationships) {
+  PK(relationship_id): SERIAL
+  --
+  FK(source_process_code): VARCHAR(20)
+  FK(target_process_code): VARCHAR(20)
+  relationship_type: VARCHAR(50)
+  relationship_description: TEXT
+  strength: VARCHAR(20)
+  created_date: TIMESTAMP
+  ==
+  INDEX(source_process_code)
+  INDEX(target_process_code)
+  INDEX(relationship_type)
+  UNIQUE(source, target, type)
+}
+
+TABLE(process_metrics) {
+  PK(metric_id): SERIAL
+  --
+  FK(process_code): VARCHAR(20)
+  metric_name: VARCHAR(255)
+  metric_description: TEXT
+  metric_type: VARCHAR(50)
+  unit_of_measure: VARCHAR(50)
+  target_value: DECIMAL(15,2)
+  industry_benchmark: DECIMAL(15,2)
+  data_source: VARCHAR(100)
+  measurement_frequency: VARCHAR(50)
+  is_active: BOOLEAN
+  created_date: TIMESTAMP
+  modified_date: TIMESTAMP
+  ==
+  INDEX(process_code)
+  INDEX(metric_type)
+}
+
+' Define Relationships
+process_categories ||--o{ processes : "has many"
+processes ||--o{ processes : "parent-child\n(self-referential)"
+processes ||--o{ process_relationships : "source"
+processes ||--o{ process_relationships : "target"
+processes ||--o{ process_metrics : "has metrics"
+
+' Notes
+note right of framework_metadata
+  Stores single record with
+  framework version metadata
+end note
+
+note right of process_categories
+  13 categories total:
+  - 6 Operating (1.0-6.0)
+  - 7 Management & Support (7.0-13.0)
+end note
+
+note right of processes
+  413 total processes:
+  - Level 1: 13 Categories
+  - Level 2: 72 Process Groups
+  - Level 3: 328 Processes
+
+  Self-referential hierarchy
+  through parent_process_code
+end note
+
+note right of process_relationships
+  Extensible table for
+  documenting dependencies,
+  interfaces, and other
+  inter-process relationships
+end note
+
+note right of process_metrics
+  KPIs and performance metrics:
+  - efficiency
+  - effectiveness
+  - quality
+  - cycle_time
+  - cost
+end note
+
+@enduml

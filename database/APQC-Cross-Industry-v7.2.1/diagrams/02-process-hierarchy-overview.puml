@@ -1,0 +1,75 @@
+@startuml APQC_Process_Hierarchy_Overview
+!theme plain
+skinparam defaultFontSize 10
+skinparam packageStyle rectangle
+
+title APQC Process Classification Framework - Process Hierarchy\nCross Industry v7.2.1 - Overview
+
+package "APQC PCF Structure" {
+
+  package "Level 1: Categories (13)" #LightBlue {
+
+    package "Operating Categories (1.0-6.0)" #LightGreen {
+      [1.0 Develop Vision\nand Strategy] as cat1
+      [2.0 Develop and Manage\nProducts and Services] as cat2
+      [3.0 Market and Sell\nProducts and Services] as cat3
+      [4.0 Deliver Physical\nProducts] as cat4
+      [5.0 Deliver\nServices] as cat5
+      [6.0 Manage Customer\nService] as cat6
+    }
+
+    package "Management & Support Categories (7.0-13.0)" #LightCoral {
+      [7.0 Develop and Manage\nHuman Capital] as cat7
+      [8.0 Manage Financial\nResources] as cat8
+      [9.0 Acquire, Construct, and\nManage Assets] as cat9
+      [10.0 Manage Enterprise Risk,\nCompliance, Remediation,\nand Resiliency] as cat10
+      [11.0 Manage External\nRelationships] as cat11
+      [12.0 Develop and Manage\nBusiness Capabilities] as cat12
+      [13.0 Measure and\nBenchmark] as cat13
+    }
+  }
+
+  package "Level 2: Process Groups (72)" #LightYellow {
+    note as n2
+      Each Category contains
+      multiple Process Groups
+
+      Example for 1.0:
+      - 1.1 Define business concept
+      - 1.2 Develop business strategy
+      - 1.3 Execute strategic initiatives
+      - 1.4 Develop business models
+    end note
+  }
+
+  package "Level 3: Processes (328)" #LightCyan {
+    note as n3
+      Each Process Group contains
+      multiple detailed Processes
+
+      Example for 1.1:
+      - 1.1.1 Assess external environment
+      - 1.1.2 Survey market
+      - 1.1.3 Assess internal environment
+      - 1.1.4 Establish strategic vision
+      - 1.1.5 Conduct restructuring
+    end note
+  }
+}
+
+' Relationships showing hierarchy
+cat1 ..> n2 : "contains"
+n2 ..> n3 : "contains"
+
+note bottom of APQC_PCF_Structure
+  <b>Total Framework Size:</b>
+  - 413 total process elements
+  - 13 top-level categories
+  - 72 process groups
+  - 328 detailed processes
+
+  <b>Hierarchy Depth:</b> 3 levels
+  <b>Self-referential:</b> Yes (parent_process_code)
+end note
+
+@enduml
