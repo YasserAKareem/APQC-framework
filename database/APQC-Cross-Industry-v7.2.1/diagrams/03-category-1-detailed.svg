@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="92px" preserveAspectRatio="none" style="width:354px;height:92px;background:#000000;" version="1.1" viewBox="0 0 354 92" width="354px" zoomAndPan="magnify"><defs/><g><rect fill="#231D26" height="1" style="stroke: #231D26; stroke-width: 1.0;" width="1" x="0" y="0"/><rect fill="#33FF02" height="21.2969" style="stroke: #33FF02; stroke-width: 1.0;" width="348" x="5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="346" x="6" y="20">[From 03-category-1-detailed.puml (line 2) ]</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="0" x="10" y="40.2969"/><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="295" x="5" y="56.5938">@startuml APQC_Category_1_Detailed</text><text fill="#33FF02" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="98" x="5" y="72.8906">!theme plain</text><text fill="#FF0000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="106" x="10" y="89.1875">Syntax Error?</text><!--MD5=[a68ee350f10047304a5e0b76828d20f3]
+@startuml APQC_Category_1_Detailed
+!theme plain
+skinparam defaultFontSize 9
+skinparam backgroundColor #FFFFF0
+
+title APQC PCF - Category 1.0 Detailed Hierarchy\nDevelop Vision and Strategy
+
+package "1.0 Develop Vision and Strategy" #LightBlue {
+  note as desc1
+    <b>Description:</b>
+    Establishing a direction and vision for an organization.
+    This involves defining the business concept and long-term
+    vision, as well as developing the business strategy and
+    managing strategic initiatives.
+  end note
+
+  package "1.1 Define the business concept\nand long-term vision" #LightGreen {
+    [1.1.1 Assess the external\nenvironment] as p111
+    [1.1.2 Survey market and determine\ncustomer needs and wants] as p112
+    [1.1.3 Assess the internal\nenvironment] as p113
+    [1.1.4 Establish strategic\nvision] as p114
+    [1.1.5 Conduct organization\nrestructuring opportunities] as p115
+  }
+
+  package "1.2 Develop business\nstrategy" #LightGreen {
+    [1.2.1 Develop overall mission\nstatement] as p121
+    [1.2.2 Formulate strategic\nobjectives] as p122
+    [1.2.3 Develop organization\ndesign] as p123
+    [1.2.4 Develop and set\norganizational goals] as p124
+    [1.2.5 Formulate business unit\nstrategies] as p125
+  }
+
+  package "1.3 Execute and measure\nstrategic initiatives" #LightGreen {
+    [1.3.1 Develop strategic\ninitiatives] as p131
+    [1.3.2 Establish organizational\nperformance measures] as p132
+    [1.3.3 Manage strategic\ninitiatives] as p133
+    [1.3.4 Evaluate strategic\nperformance] as p134
+  }
+
+  package "1.4 Develop and maintain\nbusiness models" #LightGreen {
+    [1.4.1 Develop business\nmodels] as p141
+    [1.4.2 Manage business\nmodels] as p142
+  }
+}
+
+p111 -[hidden]down-> p112
+p112 -[hidden]down-> p113
+p113 -[hidden]down-> p114
+p114 -[hidden]down-> p115
+
+p121 -[hidden]down-> p122
+p122 -[hidden]down-> p123
+p123 -[hidden]down-> p124
+p124 -[hidden]down-> p125
+
+p131 -[hidden]down-> p132
+p132 -[hidden]down-> p133
+p133 -[hidden]down-> p134
+
+p141 -[hidden]down-> p142
+
+p111 .right.> p121 : "leads to"
+p125 .right.> p131 : "leads to"
+p134 .right.> p141 : "leads to"
+
+note bottom
+  <b>Category 1.0 Statistics:</b>
+  - Process Groups: 4
+  - Total Processes: 33
+  - Category Type: Operating
+  - Hierarchy Levels: 3
+end note
+
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 10:22:07 UTC 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 17.0.18+8
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: null
+--></g></svg>

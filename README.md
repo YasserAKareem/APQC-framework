@@ -41,6 +41,18 @@ follow the standard solution pack import procedure
 
 In addition to the HOPEX Solution Pack, this repository now includes a **complete SQL database implementation** and **comprehensive reporting package** for the APQC Process Classification Framework v7.2.1.
 
+### Database Architecture
+
+![APQC Database ERD](database/APQC-Cross-Industry-v7.2.1/diagrams/01-database-erd.svg)
+
+*Complete Entity-Relationship Diagram showing the normalized database structure with 5 tables, relationships, and constraints*
+
+### Process Framework Overview
+
+![APQC Process Hierarchy](database/APQC-Cross-Industry-v7.2.1/diagrams/02-process-hierarchy-overview.svg)
+
+*High-level view of the APQC framework showing all 13 categories and 3 hierarchy levels*
+
 ### Features
 
 - ✅ **SQL Database** - Full normalized database (PostgreSQL, MySQL, SQL Server)
@@ -49,12 +61,14 @@ In addition to the HOPEX Solution Pack, this repository now includes a **complet
 - ✅ **Multiple Formats** - CSV, HTML, Excel, SQL output
 - ✅ **Automation Tools** - Python and Shell scripts for report generation
 - ✅ **BI Integration** - Ready for Tableau, Power BI, Excel
+- ✅ **UML Diagrams** - Comprehensive database and process visualizations
 - ✅ **70KB+ Documentation** - Complete setup and usage guides
 
 ### Quick Links
 
 - **[Database Documentation](database/APQC-Cross-Industry-v7.2.1/README.md)** - Setup and usage guide
 - **[Reports Documentation](database/APQC-Cross-Industry-v7.2.1/reports/README.md)** - Report generation guide
+- **[UML Diagrams & Visualizations](database/APQC-Cross-Industry-v7.2.1/diagrams/README.md)** - Interactive diagrams and PDF generation
 - **[REPORTS.md](REPORTS.md)** - Quick overview of reporting capabilities
 
 ### Quick Start
