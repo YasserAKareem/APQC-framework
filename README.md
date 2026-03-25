@@ -39,7 +39,31 @@ follow the standard solution pack import procedure
 
 ## New: SQL Database & Reporting Solution
 
-In addition to the HOPEX Solution Pack, this repository now includes a **complete SQL database implementation** and **comprehensive reporting package** for the APQC Process Classification Framework v7.2.1.
+In addition to the HOPEX Solution Pack, this repository now includes a **complete SQL database implementation**, **comprehensive reporting package**, and **standalone Excel dataset** for the APQC Process Classification Framework v7.2.1.
+
+### Excel Dataset (New!)
+
+**Download:** [APQC-Cross-Industry-v7.2.1-Dataset.xlsx](APQC-Cross-Industry-v7.2.1-Dataset.xlsx)
+
+**✓ 100% COMPLETE** - Verified and certified
+
+A standalone Excel workbook with all APQC framework data:
+- ✅ **No Database Required** - Ready to use immediately
+- ✅ **5 Comprehensive Sheets** - Summary, Metadata, Categories, Processes, Hierarchy
+- ✅ **413 Processes** - Complete Cross Industry framework (13 categories, 72 process groups, 328 processes)
+- ✅ **Professional Formatting** - Color-coded, auto-sized columns
+- ✅ **Multiple Views** - Detailed tables and hierarchical views
+- ✅ **Universal Format** - Works in Excel, LibreOffice, Google Sheets
+- ✅ **Verified Complete** - Automated verification confirms 100% data integrity
+
+**Use Cases:**
+- Quick reference and browsing
+- Offline access to APQC framework
+- Import into other tools
+- Training and presentations
+- Business process analysis
+
+See [XLSX_DATASET_README.md](database/APQC-Cross-Industry-v7.2.1/XLSX_DATASET_README.md) for detailed documentation.
 
 ### Database Architecture
 
